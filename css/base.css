@@ -1,0 +1,344 @@
+@charset "UTF-8";
+
+/*******************************************************************************
+                                      Fonts
+*******************************************************************************/
+@font-face {
+    font-family: Catamaran;
+    src: url(fonts/Catamaran/Catamaran-Regular.ttf);
+}
+
+@font-face {
+    font-family: Catamaran-Bold;
+    src: url(fonts/Catamaran/Catamaran-Bold.ttf);
+}
+
+@font-face {
+  font-family: Glegoo;
+  src: url(fonts/Glegoo/Glegoo-Regular.ttf);
+}
+
+@font-face {
+  font-family: Glegoo-Bold;
+  src: url(fonts/Glegoo/Glegoo-Bold.ttf);
+}
+
+@font-face {
+  font-family: Oxygen ;
+  src: url(fonts/Oxygen/Oxygen-Regular.ttf)
+  ;
+}
+
+@font-face {
+  font-family: Oxygen-Bold;
+  src: url(fonts/Oxygen/Oxygen-Bold.ttf);
+}
+
+@font-face {
+  font-family: OxygenM;
+  src: url(fonts/Oxygen_Mono/OxygenMono-Regular.ttf);
+}
+
+/*******************************************************************************
+                                  Css Varaibles
+*******************************************************************************/
+:root{
+
+  /* Colors */
+  --clr-khaki: #f0e68c;
+  --clr-nav: rgb(30, 30, 30);
+  --clr-blue: #8cc8f0;
+  --clr-red: #D7263D;
+  --clr-gblack: rgb(16,16,16);
+  --clr-section: rgb(4, 12, 25);
+
+  --gradient-light: linear-gradient(145deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  --gradient-dark: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+/*******************************************************************************
+                                  Main Styles
+*******************************************************************************/
+*,*::after, *::before{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html{
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+body{
+  background: var(--clr-gblack);
+  position: relative;
+}
+
+h1{
+  color: var(--clr-khaki);
+  font-size: 2em;
+  font-family: Glegoo-Bold;
+}
+
+h2{
+  color: var(--clr-khaki);
+  font-size: 1.5em;
+  font-family: Glegoo-Bold;
+}
+
+h3{
+  color: var(--clr-khaki);
+  font-size: 1.5em;
+  font-family: Oxygen-Bold;
+}
+
+h4{
+  color: var(--clr-blue);
+  font-family: Oxygen;
+  letter-spacing: 1px;
+}
+
+a{
+  color: var(--clr-red);
+  font-family: Catamaran;
+}
+
+a:hover{
+  color: var(--clr-blue);
+}
+
+p{
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.875em;
+  font-family: OxygenM;
+}
+
+li{
+  font-family: OxygenM;
+}
+
+
+/*******************************************************************************
+                                Navigation Styles
+*******************************************************************************/
+/*Designed with mobile first in mind due to the complexity of mobile styling.*/
+
+
+header{
+  color: white;
+  background: var(--clr-nav);
+  text-align: center;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 4em;
+  border-radius: 0.2rem;
+}
+
+#logo{
+  display: none;
+}
+
+.nav--toggle--label{
+  grid-column: 1 / 2;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transform: rotate(-90deg);
+}
+
+
+nav{
+  background: var(--clr-nav);
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  transform: scale(1,0);
+  -webkit-transition: -webkit-transform 400ms ease-in-out;
+  -moz-transition: -moz-transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out;
+  transform-origin: top;
+}
+
+
+nav ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li{
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover{
+  color: var(--clr-blue);
+}
+
+.nav--toggle{
+  display: none;
+}
+
+.nav--toggle:checked ~ nav{
+  transform: scale(1,1);
+}
+
+.nav--toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+nav .active{
+  color: var(--clr-khaki);
+}
+
+nav .active:hover{
+  color: var(--clr-khaki);
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 900px) {
+  .nav--toggle--label{
+    display: none;
+  }
+
+  header{
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+
+  #mobile-logo{
+    display: none;
+  }
+
+  #logo{
+    display: block;
+    grid-column: 2 / 3;
+    align-self: center;
+    display: grid;
+    grid-template-columns: min-content min-content;
+    grid-gap: 0.5em;
+  }
+
+  .logo{
+    grid-column: 1/2;
+    height:50px;
+    text-align: center;
+  }
+
+  #logo__h2{
+    grid-column: 2/3;
+    align-self: center;
+  }
+
+  nav{
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav ul{
+    display: flex;
+  }
+
+  nav li{
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+
+  nav a{
+    opacity: 1;
+    position: relative;
+  }
+
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: var(--clr-blue);
+    position: absolute;
+    bottom: -.5em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1,1);
+  }
+}
+
+
+/*
+Navigation styles end here
+*/
+
+/*******************************************************************************
+                            Footer Section
+*******************************************************************************/
+
+footer{
+  color: white;
+  background: var(--clr-nav);
+  text-align: center;
+  width: 100%;
+  min-height: 4em;
+  border-radius: 0.2rem;
+  padding: 1.5em 6em;
+  overflow: hidden;
+}
+
+footer > ul {
+  list-style:none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px , 1fr));
+  grid-gap: 0.5em;
+}
+
+footer a{
+  text-decoration: none;
+  color: white;
+  transition: all 150ms ease-in-out;
+}
+
+footer a::after{
+  content: ' ';
+  border: solid  var(--clr-blue) 2px;
+  display: block;
+  width: 50%;
+  margin: 10px auto 0 auto;
+  transform: scale(1,1);
+  transition: all 150ms ease-in-out;
+}
+
+footer a:hover{
+  color: var(--clr-blue);
+}
+
+footer a:hover::after{
+  transform: scale(0,1);
+}

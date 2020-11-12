@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+/*******************************************************************************
+                            Main/Overwrite Layout
+*******************************************************************************/
+html{
+  width: 100%;
+  background: linear-gradient(65deg ,rgb(35, 35, 31) , var(--clr-khaki),
+  rgb(35, 35, 31)) no-repeat fixed;
+}
+
+body{
+  position: relative;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  min-height: 100vh;
+  /* box-shadow: 4px 4px 3px rgba(240, 230, 140, 0.4);  Needs to be done*/
+}
+
+header{
+  position: sticky;
+}
+
+section{
+  margin: 2em;
+  padding: 2em 1em;
+  border-radius: 2px;
+  background: radial-gradient(var(--clr-section) ,rgb(35, 35, 31),
+   var(--clr-section)) no-repeat fixed;
+  color: white;
+  box-shadow: 4px 4px 3px rgba(4,12,25,.4);
+  text-overflow: ellipsis;
+}
+
+p{
+  color: white;
+}
+
+footer{
+  position: relative;
+  bottom: 0;
+}
+
+/*******************************************************************************
+                                Secondary Nav
+*******************************************************************************/
+ul#secondary--nav{
+  background: var(--clr-nav);
+  padding: 0.5em;
+  list-style: none;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  grid-gap: 2em;
+}
+
+ul#secondary--nav > li {
+  align-self: center;
+  text-align: center;
+}
+
+ul#secondary--nav a {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+}
+/*******************************************************************************
+                                    Hero
+*******************************************************************************/
+#hero{
+  width: 100%;
+  height: 300px;
+  background: url('../img/info-hero.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero > img{
+  width: 100%;
+  height: auto;
+  max-width: 626px;
+}
+
+
+
+/*******************************************************************************
+                                      Main
+*******************************************************************************/
+
+.main{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (max-width: 900px)
+{
+  .main{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/*******************************************************************************
+                                    Sections
+*******************************************************************************/
+section > ul,
+section > ol {
+  width: 90%;
+  padding-top: 1.5em;
+}
+
+section ul{
+  list-style: square;
+}
+
+section li{
+  padding-top: 1em;
+}
+
+section > .info__title{
+  padding-bottom: 0.58em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.content--title{
+  color: var(--clr-khaki);
+  font-weight: bold;
+}
+
+section#rar{
+  grid-row: 1 / span 2;
+}

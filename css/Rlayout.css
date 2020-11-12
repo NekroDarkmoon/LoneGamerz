@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+/*******************************************************************************
+                                  Css Varaibles
+*******************************************************************************/
+
+
+/*******************************************************************************
+                                  Base Override
+*******************************************************************************/
+body{
+  background: white;
+  color: black;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: min-content 1fr auto;
+}
+
+/*******************************************************************************
+                                      Hero
+*******************************************************************************/
+div#hero{
+  height: 25vh;
+  margin-top: 4em;
+  background: url('../img/resources-hero.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero > img {
+width: 100%;
+max-width: 626px;
+margin-left: auto;
+margin-right: auto;
+}
+/*******************************************************************************
+                                Selection port
+*******************************************************************************/
+
+div#selection-port{
+  padding: 5em 8%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, minmax(10px, 150px));
+  grid-gap: 0.4em;
+}
+
+.card{
+  grid-column: span 2;
+  border: 1px solid var(--clr-blue);
+  box-shadow: 4px 4px 3px rgba(0,0,0,.2);
+  transform: scale(0.99);
+  transition: all 300ms ease-in-out;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.card:hover{
+  cursor: pointer;
+  transform: scale(1.01);
+  border-radius: 1em;
+}
+
+.card__title{
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__title > h3{
+  color: white;
+  font-size: 2em;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+
+@media (max-width: 800px){
+  div#selection-port{
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(8 ,minmax(10px, 150px));
+  }
+}
+
+
+#archwing{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/archwing.jpg');
+  background-size: cover;
+}
+
+#calculator{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/calculator.png');
+  background-size: cover;
+}
+
+#raids{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/raids.jpg');
+  background-size: cover;
+}
+
+#syndicate{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/syndicates.jpg');
+  background-size: cover;
+  background-position: 50% 30%;
+}
+
+#warframe{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/warframes.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#forums{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/forums.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#twitch{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/twitch.png');
+  background-size: cover;
+}
+
+#wiki{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/wiki.png');
+  background-size: cover;
+}
+
+.divLink{
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 4;
+}
